@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using TopSegurosBrasilTest.Models;
+using TopSegurosBrasil.Models;
 
-namespace TopSegurosBrasilTest.Controllers
+namespace TopSegurosBrasil.Controllers
 {
     public class HomeController : Controller
     {

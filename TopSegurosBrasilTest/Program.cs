@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using TopSegurosBrasil.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<TopSegurosBrasilContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TopSegurosBrasilContext"), builderr =>
+                        builderr.MigrationsAssembly("TopSegurosBrasil")));
 
 var app = builder.Build();
 

@@ -1,4 +1,4 @@
-namespace TopSegurosBrasilTest.Models
+namespace TopSegurosBrasil.Models
 {
     public class ErrorViewModel
     {
