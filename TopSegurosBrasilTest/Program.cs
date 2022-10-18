@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TopSegurosBrasil.Data;
+using TopSegurosBrasil.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<TopSegurosBrasilContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TopSegurosBrasilContext"), builderr =>
                         builderr.MigrationsAssembly("TopSegurosBrasil")));
+builder.Services.AddScoped<TiposDeSeguroService>();
+builder.Services.AddScoped<ClientService>();
 
 var app = builder.Build();
 

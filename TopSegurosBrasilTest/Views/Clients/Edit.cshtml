@@ -1,0 +1,94 @@
+﻿@model TopSegurosBrasil.Models.ViewModels.ClientFormViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Client</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Client.Id" />
+            <div class="form-group">
+                <label asp-for="Client.Nome" class="control-label"></label>
+                <input asp-for="Client.Nome" class="form-control" />
+                <span asp-validation-for="Client.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.DataNascimento" class="control-label"></label>
+                <input asp-for="Client.DataNascimento" class="form-control" />
+                <span asp-validation-for="Client.DataNascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Email" class="control-label"></label>
+                <input asp-for="Client.Email" class="form-control" />
+                <span asp-validation-for="Client.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Celular" class="control-label"></label>
+                <input asp-for="Client.Celular" class="form-control" />
+                <span asp-validation-for="Client.Celular" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Cpf" class="control-label"></label>
+                <input asp-for="Client.Cpf" class="form-control" />
+                <span asp-validation-for="Client.Cpf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Rg" class="control-label"></label>
+                <input asp-for="Client.Rg" class="form-control" />
+                <span asp-validation-for="Client.Rg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Genero" class="control-label"></label>
+                <input asp-for="Client.Genero" class="form-control" />
+                <span asp-validation-for="Client.Genero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Bairro" class="control-label"></label>
+                <input asp-for="Client.Bairro" class="form-control" />
+                <span asp-validation-for="Client.Bairro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Cidade" class="control-label"></label>
+                <input asp-for="Client.Cidade" class="form-control" />
+                <span asp-validation-for="Client.Cidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Estado" class="control-label"></label>
+                <input asp-for="Client.Estado" class="form-control" />
+                <span asp-validation-for="Client.Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Cep" class="control-label"></label>
+                <input asp-for="Client.Cep" class="form-control" />
+                <span asp-validation-for="Client.Cep" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Num_Imovel" class="control-label"></label>
+                <input asp-for="Client.Num_Imovel" class="form-control" />
+                <span asp-validation-for="Client.Num_Imovel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.TiposDeSeguroId" class="control-label"></label>
+                <select asp-for="Client.TiposDeSeguroId" asp-items="@(new SelectList(Model.TiposDeSeguros,"Id","Name"))" class="form-control">
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
