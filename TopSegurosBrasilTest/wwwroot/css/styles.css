@@ -4,3 +4,9 @@
 body {
     background: #e2e8f0;
 }
+
+
+
+.calcWidth {
+/*    max-width: calc(1060px - 255px);
+*/}
