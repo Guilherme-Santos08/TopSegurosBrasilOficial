@@ -18,6 +18,10 @@ namespace TopSegurosBrasil.Models
         [Display(Name = "Descrição do Tipo de Seguro")]
         public string DescTipoDeSeguro { get; set; }
 
+        public ICollection<Client> Client { get; set; } = new List<Client>();
+
+
+
         public TiposDeSeguro() { }
 
         public TiposDeSeguro(int id, string name, string descTipoDeSeguro)

@@ -15,6 +15,7 @@ namespace TopSegurosBrasil.Data
         }
 
         public DbSet<TopSegurosBrasil.Models.Client> Client { get; set; }
+
         public DbSet<TopSegurosBrasil.Models.TiposDeSeguro> TiposDeSeguro { get; set; }
     }
 }

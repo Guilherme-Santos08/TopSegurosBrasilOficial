@@ -21,6 +21,9 @@ namespace TopSegurosBrasil.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataNascimento { get; set; }
 
+/*        [Display(Name = "Tipo de Seguro")]
+        public char TipoSeguro { get; set; }*/
+
         [Required(ErrorMessage = "{0} precisa ser preenchido")]
         [EmailAddress(ErrorMessage = "Coloque um email válido")]
         [DataType(DataType.EmailAddress)]
@@ -35,7 +38,9 @@ namespace TopSegurosBrasil.Models
         [Required(ErrorMessage = "{0} precisa ser preenchido")]
         public string Rg { get; set; }
 
-        [Required(ErrorMessage = "{0} precisa ser preenchido")]
+/*        [Required(ErrorMessage = "{0} precisa ser preenchido")]
+        [StringLength(1, MinimumLength = 1, ErrorMessage = "{0} o tamanho deve ser no máximo {1}")]
+        [Display(Name = "Genero Masculino(M) - Femenino(N)")]*/
         public char Genero { get; set; }
 
 
@@ -59,8 +64,8 @@ namespace TopSegurosBrasil.Models
         public TiposDeSeguro TiposDeSeguro { get; set; }
         public int TiposDeSeguroId { get; set; }
 
-        public ICollection<Veiculo> Veiculo { get; set; } = new List<Veiculo>();
-
+/*        public ICollection<Veiculo> Veiculo { get; set; } = new List<Veiculo>();
+*/
 
         public Client()
         {
@@ -73,8 +78,7 @@ namespace TopSegurosBrasil.Models
             string cpf, string rg, char genero,
             string bairro, string cidade, string estado,
             int cep, int numImovel,
-            TiposDeSeguro tiposDeSeguro,
-            Veiculo veiculo
+            TiposDeSeguro tiposDeSeguro
             )
         {
             Id = id;
@@ -91,7 +95,6 @@ namespace TopSegurosBrasil.Models
             Cep = cep;
             Num_Imovel = numImovel;
             TiposDeSeguro = tiposDeSeguro;
-            Veiculo = (ICollection<Veiculo>)veiculo;
         }
     }
 }
