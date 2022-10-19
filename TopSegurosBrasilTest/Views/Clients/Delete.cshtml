@@ -1,78 +1,99 @@
 ﻿@model TopSegurosBrasil.Models.Client
+
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Delete";
 }
 
-<h1 class="mb-6 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Detalhes do Cliente</h1>
+<h2>Delete</h2>
 
-<h3 class="text-xl font-bold">Você tem certeza que deseja excluir isso?</h3>
-
+<h3>Are you sure you want to delete this?</h3>
 <div>
-    <div class="grid gap-6 mb-6 md:grid-cols-2">
-        <div>
-            <label for="name" class="labelCreateClients">Nome Completo</label>
-            <input value="@Html.DisplayNameFor(model => model.Nome)" type="text" id="name" class="inputCreateClients" disabled />
-        </div>
-        <div>
-            <label for="dataNascimento" class="labelCreateClients">Data de Nascimento</label>
-            <input value="@Html.DisplayNameFor(model => model.DataNascimento)" type="text" id="dataNascimento" class="inputCreateClients" disabled>
-        </div>
-        <div>
-            <label for="emailUsuario" class="labelCreateClients">Data de Nascimento</label>
-            <div id="emailUsuario" class="inputCreateClients" disabled>
-                @Html.DisplayFor(model => model.Email)
-            </div>
-        </div>
-        <div>
-            <label for="phone" class="labelCreateClients">Celular</label>
-            <input value="@Html.DisplayFor(model => model.Celular)" type="text" id="phone" class="inputCreateClients" disabled>
-        </div>
-        <div>
-            <label for="cpf" class="labelCreateClients">CPF</label>
-            <input value="@Html.DisplayFor(model => model.Cpf)" type="text" id="cpf" class="inputCreateClients" disabled>
-        </div>
-        <div>
-            <label for="rg" class="labelCreateClients">RG</label>
-            <input value="@Html.DisplayFor(model => model.Rg)" type="number" id="rg" class="inputCreateClients" disabled>
-        </div>
-    </div>
-
-    <div class="mb-6">
-        <label for="genero" class="labelCreateClients">Gênero (M-F)</label>
-        <input value="@Html.DisplayFor(model => model.Genero)" type="text" id="genero" class="inputCreateClients" disabled>
-    </div>
-
-    <div class="grid gap-6 mb-6 md:grid-cols-2">
-
-        <div class="mb-6">
-            <label for="bairro" class="labelCreateClients">Bairro</label>
-            <input value="@Html.DisplayFor(model => model.Bairro)" type="text" id="bairro" class="inputCreateClients" disabled>
-        </div>
-        <div class="mb-6">
-            <label for="cidade" class="labelCreateClients">Cidade</label>
-            <input value="@Html.DisplayFor(model => model.Cidade)" type="text" id="cidade" class="inputCreateClients" disabled>
-        </div>
-        <div class="mb-6">
-            <label for="estado" class="labelCreateClients">Estado</label>
-            <input value="@Html.DisplayFor(model => model.Estado)" type="text" id="estado" class="inputCreateClients" disabled>
-        </div>
-        <div class="mb-6">
-            <label for="cep" class="labelCreateClients">Cep</label>
-            <input value="@Html.DisplayFor(model => model.Cep)" type="number" id="cep" class="inputCreateClients" disabled>
-        </div>
-        <div class="mb-6">
-            <label for="num_Imovel" class="labelCreateClients">Número da Residência</label>
-            <input value="@Html.DisplayFor(model => model.Num_Imovel)" type="number" id="num_Imovel" class="inputCreateClients" disabled>
-        </div>
-        <div class="mb-6">
-            <label for="tiposDeSeguroId" class="labelCreateClients">Plano do Cliente</label>
-            <input value="@Html.DisplayFor(model => model.TiposDeSeguro.Name)" id="tiposDeSeguroId" class="inputCreateClients" disabled>
-        </div>
-    </div>
+    <h4>Client</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataNascimento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TiposDeSeguro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TiposDeSeguro.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Celular)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Celular)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cpf)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rg)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rg)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Genero)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Genero)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Bairro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Bairro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cep)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cep)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Num_Imovel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Num_Imovel)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
 </div>
-
-<form asp-action="Delete">
-    <input type="hidden" asp-for="Id" />
-    <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">Deletar</button>
-    <a asp-action="Index" class="underline font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar para lista</a>
-</form>
