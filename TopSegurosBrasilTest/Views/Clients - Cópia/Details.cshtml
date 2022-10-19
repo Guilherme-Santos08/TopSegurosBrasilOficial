@@ -1,0 +1,75 @@
+﻿@model TopSegurosBrasil.Models.Client
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="mb-6 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Detalhes do Cliente</h1>
+
+
+<div>
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+            <label for="name" class="labelCreateClients">Nome Completo</label>
+            <input value="@Html.DisplayNameFor(model => model.Nome)" type="text" id="name" class="inputCreateClients" disabled />
+        </div>
+        <div>
+            <label for="dataNascimento" class="labelCreateClients">Data de Nascimento</label>
+            <input value="@Html.DisplayNameFor(model => model.DataNascimento)" type="text" id="dataNascimento" class="inputCreateClients" disabled>
+        </div>
+        <div>
+            <label for="emailUsuario" class="labelCreateClients">Data de Nascimento</label>
+            <div id="emailUsuario" class="inputCreateClients" disabled>
+                @Html.DisplayFor(model => model.Email)
+            </div>
+        </div>
+        <div>
+            <label for="phone" class="labelCreateClients">Celular</label>
+            <input value="@Html.DisplayFor(model => model.Celular)" type="text" id="phone" class="inputCreateClients" disabled>
+        </div>
+        <div>
+            <label for="cpf" class="labelCreateClients">CPF</label>
+            <input value="@Html.DisplayFor(model => model.Cpf)" type="text" id="cpf" class="inputCreateClients" disabled>
+        </div>
+        <div>
+            <label for="rg" class="labelCreateClients">RG</label>
+            <input value="@Html.DisplayFor(model => model.Rg)" type="number" id="rg" class="inputCreateClients" disabled>
+        </div>
+    </div>
+
+    <div class="mb-6">
+        <label for="genero" class="labelCreateClients">Gênero (M-F)</label>
+        <input value="@Html.DisplayFor(model => model.Genero)" type="text" id="genero" class="inputCreateClients" disabled>
+    </div>
+
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+
+        <div class="mb-6">
+            <label for="bairro" class="labelCreateClients">Bairro</label>
+            <input value="@Html.DisplayFor(model => model.Bairro)" type="text" id="bairro" class="inputCreateClients" disabled>
+        </div>
+        <div class="mb-6">
+            <label for="cidade" class="labelCreateClients">Cidade</label>
+            <input value="@Html.DisplayFor(model => model.Cidade)" type="text" id="cidade" class="inputCreateClients" disabled>
+        </div>
+        <div class="mb-6">
+            <label for="estado" class="labelCreateClients">Estado</label>
+            <input value="@Html.DisplayFor(model => model.Estado)" type="text" id="estado" class="inputCreateClients" disabled>
+        </div>
+        <div class="mb-6">
+            <label for="cep" class="labelCreateClients">Cep</label>
+            <input value="@Html.DisplayFor(model => model.Cep)" type="number" id="cep" class="inputCreateClients" disabled>
+        </div>
+        <div class="mb-6">
+            <label for="num_Imovel" class="labelCreateClients">Número da Residência</label>
+            <input value="@Html.DisplayFor(model => model.Num_Imovel)" type="number" id="num_Imovel" class="inputCreateClients" disabled>
+        </div>
+        <div class="mb-6">
+            <label for="tiposDeSeguroId" class="labelCreateClients">Plano do Cliente</label>
+            <input value="@Html.DisplayFor(model => model.TiposDeSeguro.Name)" id="tiposDeSeguroId" class="inputCreateClients" disabled>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" class="underline font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar para lista</a>
+    </div>
+</div>

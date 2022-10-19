@@ -1,0 +1,95 @@
+﻿@model TopSegurosBrasil.Models.ViewModels.ClientFormViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="mb-6 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Editar Cliente</h1>
+
+
+<form asp-action="Edit">
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <input type="hidden" asp-for="Client.Id" />
+        <div>
+            <label asp-for="Client.Nome" for="name" class="labelCreateClients">Nome Completo</label>
+            <input asp-for="Client.Nome" type="text" id="name" class="inputCreateClients" placeholder="John" />
+            <span asp-validation-for="Client.Nome" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Client.DataNascimento" for="dataNascimento" class="labelCreateClients">Data de Nascimento</label>
+            <input asp-for="Client.DataNascimento" type="date" id="dataNascimento" class="inputCreateClients" placeholder="Doe">
+            <span asp-validation-for="Client.DataNascimento" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Client.Email" for="email" class="labelCreateClients">Email</label>
+            <input asp-for="Client.Email" type="text" id="email" class="inputCreateClients" placeholder="doe@mail.com">
+            <span asp-validation-for="Client.Email" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Client.Celular" for="phone" class="labelCreateClients">Celular</label>
+            <input asp-for="Client.Celular" type="text" id="phone" class="inputCreateClients" placeholder="00-12345-6789">
+            <span asp-validation-for="Client.Celular" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Client.Cpf" for="cpf" class="labelCreateClients">CPF</label>
+            <input asp-for="Client.Cpf" type="text" id="cpf" class="inputCreateClients" placeholder="123-456-789-01">
+            <span asp-validation-for="Client.Cpf" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Client.Rg" for="rg" class="labelCreateClients">RG</label>
+            <input asp-for="Client.Rg" type="number" id="rg" class="inputCreateClients" placeholder="00.00.00.0">
+            <span asp-validation-for="Client.Rg" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+    </div>
+
+    <div class="mb-6">
+        <label asp-for="Client.Genero" for="genero" class="labelCreateClients">Gênero (M-F)</label>
+        <input asp-for="Client.Genero" type="text" id="genero" class="inputCreateClients" placeholder="M ou F">
+        <span asp-validation-for="Client.Genero" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+    </div>
+
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+
+        <div class="mb-6">
+            <label asp-for="Client.Bairro" for="bairro" class="labelCreateClients">Bairro</label>
+            <input asp-for="Client.Bairro" type="text" id="bairro" class="inputCreateClients" placeholder="Trion Masp">
+            <span asp-validation-for="Client.Bairro" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div class="mb-6">
+            <label asp-for="Client.Cidade" for="cidade" class="labelCreateClients">Cidade</label>
+            <input asp-for="Client.Cidade" type="text" id="cidade" class="inputCreateClients" placeholder="São Paulo">
+            <span asp-validation-for="Client.Cidade" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div class="mb-6">
+            <label asp-for="Client.Estado" for="estado" class="labelCreateClients">Estado</label>
+            <input asp-for="Client.Estado" type="text" id="estado" class="inputCreateClients" placeholder="São Paulo">
+            <span asp-validation-for="Client.Estado" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div class="mb-6">
+            <label asp-for="Client.Cep" for="cep" class="labelCreateClients">Cep</label>
+            <input asp-for="Client.Cep" type="number" id="cep" class="inputCreateClients" placeholder="12">
+            <span asp-validation-for="Client.Cep" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div class="mb-6">
+            <label asp-for="Client.Num_Imovel" for="num_Imovel" class="labelCreateClients">Número da Residência</label>
+            <input asp-for="Client.Num_Imovel" type="number" id="num_Imovel" class="inputCreateClients" placeholder="12">
+            <span asp-validation-for="Client.Num_Imovel" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div class="mb-6">
+            <label asp-for="Client.TiposDeSeguroId" for="tiposDeSeguroId" class="block mb-2 text-sm font-medium text-gray-900">Selecione o Plano do Cliente</label>
+            <select asp-for="Client.TiposDeSeguroId" asp-items="@(new SelectList(Model.TiposDeSeguros,"Id","Name"))" id="tiposDeSeguroId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            </select>
+            <span asp-validation-for="Client.TiposDeSeguroId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+    </div>
+
+    <button type="submit" class="mb-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Editar Cliente</button>
+    <div>
+        <a asp-action="Index" class="underline font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar para lista</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
