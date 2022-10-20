@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TopSegurosBrasil.Data;
 using TopSegurosBrasil.Models;
+using System.Text.RegularExpressions;
 
 namespace TopSegurosBrasil.Controllers
 {
@@ -54,13 +55,14 @@ namespace TopSegurosBrasil.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Email,Celular,Cpf,Rg,Genero,Bairro,Cidade,Estado,Cep,Num_Imovel,VeiculoId")] Cliente cliente)
+        public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Email,Celular,Cpf,Rg,Genero,Bairro,Cidade,Estado,Cep,Num_Imovel")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(cliente);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Create", "Veiculos", new { idUsuario = cliente.Id });
+
             }
             return View(cliente);
         }
@@ -86,7 +88,7 @@ namespace TopSegurosBrasil.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,DataNascimento,Email,Celular,Cpf,Rg,Genero,Bairro,Cidade,Estado,Cep,Num_Imovel,VeiculoId")] Cliente cliente)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,DataNascimento,Email,Celular,Cpf,Rg,Genero,Bairro,Cidade,Estado,Cep,Num_Imovel")] Cliente cliente)
         {
             if (id != cliente.Id)
             {

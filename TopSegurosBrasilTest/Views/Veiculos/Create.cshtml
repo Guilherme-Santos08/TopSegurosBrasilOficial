@@ -38,8 +38,8 @@
                 <span asp-validation-for="Placa" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClienteId" class="control-label"></label>
-                <input asp-for="ClienteId" class="form-control" />
+                <label asp-for="ClienteId" for="client_id" class="control-label"></label>
+                <input asp-for="ClienteId" id="client_id" class="form-control" disabled/>
                 <span asp-validation-for="ClienteId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -58,6 +58,15 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+<script type="text/javascript">
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParam = urlParams.get('idUsuario');
+        document.getElementById("client_id").value = myParam;
+    
+</script>
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
