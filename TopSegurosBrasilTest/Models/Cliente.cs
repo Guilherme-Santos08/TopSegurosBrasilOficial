@@ -14,6 +14,7 @@ namespace TopSegurosBrasil.Models
 
         [Required(ErrorMessage = "{0} precisa ser preenchido")]
         [StringLength(60, MinimumLength = 3, ErrorMessage = "{0} o tamanho deve ser entre {2} e {1}")]
+        [Display(Name = "Nome Completo")]
         public string Nome { get; set; }
 
 
@@ -22,9 +23,6 @@ namespace TopSegurosBrasil.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataNascimento { get; set; }
-
-/*        [Display(Name = "Tipo de Seguro")]
-        public char TipoSeguro { get; set; }*/
 
         [Required(ErrorMessage = "{0} precisa ser preenchido")]
         [EmailAddress(ErrorMessage = "Coloque um email válido")]
@@ -40,9 +38,6 @@ namespace TopSegurosBrasil.Models
         [Required(ErrorMessage = "{0} precisa ser preenchido")]
         public string Rg { get; set; }
 
-/*        [Required(ErrorMessage = "{0} precisa ser preenchido")]
-        [StringLength(1, MinimumLength = 1, ErrorMessage = "{0} o tamanho deve ser no máximo {1}")]
-        [Display(Name = "Genero Masculino(M) - Femenino(N)")]*/
         public char Genero { get; set; }
 
 
@@ -62,10 +57,6 @@ namespace TopSegurosBrasil.Models
         public int Num_Imovel { get; set; }
 
 
-        [ForeignKey("Veiculo")]
-        public int VeiculoId { get; set; }
-
-
         public Cliente()
         {
 
@@ -76,8 +67,7 @@ namespace TopSegurosBrasil.Models
             string email, string celular,
             string cpf, string rg, char genero,
             string bairro, string cidade, string estado,
-            int cep, int numImovel,
-            int veiculoId
+            int cep, int numImovel
             )
         {
             Id = id;
@@ -93,7 +83,6 @@ namespace TopSegurosBrasil.Models
             Estado = estado;
             Cep = cep;
             Num_Imovel = numImovel;
-            VeiculoId = veiculoId;
         }
     }
 }

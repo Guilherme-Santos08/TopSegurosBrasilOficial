@@ -4,90 +4,114 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Criar Cliente</h1>
 
-<h4>Cliente</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+<nav class="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50 mb-8" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <li class="inline-flex items-center">
+            <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                Home
+            </a>
+        </li>
+        <li>
+            <div class="flex items-center">
+                <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                <a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2">Tabela Clientes</a>
             </div>
-            <div class="form-group">
-                <label asp-for="DataNascimento" class="control-label"></label>
-                <input asp-for="DataNascimento" class="form-control" />
-                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+        </li>
+        <li aria-current="page">
+            <div class="flex items-center">
+                <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                <span class="ml-1 text-sm font-medium text-blue-600 md:ml-2">Criando Clientes</span>
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Celular" class="control-label"></label>
-                <input asp-for="Celular" class="form-control" />
-                <span asp-validation-for="Celular" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cpf" class="control-label"></label>
-                <input asp-for="Cpf" class="form-control" />
-                <span asp-validation-for="Cpf" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rg" class="control-label"></label>
-                <input asp-for="Rg" class="form-control" />
-                <span asp-validation-for="Rg" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Genero" class="control-label"></label>
-                <input asp-for="Genero" class="form-control" />
-                <span asp-validation-for="Genero" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Bairro" class="control-label"></label>
-                <input asp-for="Bairro" class="form-control" />
-                <span asp-validation-for="Bairro" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cidade" class="control-label"></label>
-                <input asp-for="Cidade" class="form-control" />
-                <span asp-validation-for="Cidade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Estado" class="control-label"></label>
-                <input asp-for="Estado" class="form-control" />
-                <span asp-validation-for="Estado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cep" class="control-label"></label>
-                <input asp-for="Cep" class="form-control" />
-                <span asp-validation-for="Cep" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Num_Imovel" class="control-label"></label>
-                <input asp-for="Num_Imovel" class="form-control" />
-                <span asp-validation-for="Num_Imovel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VeiculoId" class="control-label"></label>
-                <input asp-for="VeiculoId" class="form-control" />
-                <span asp-validation-for="VeiculoId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </li>
+    </ol>
+</nav>
+
+<form asp-action="Create">
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+            <label asp-for="Nome" for="name" class="labelCreateClients">Nome Completo</label>
+            <input asp-for="Nome" type="text" id="name" class="inputCreateClients" placeholder="John" />
+            <span asp-validation-for="Nome" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="DataNascimento" for="dataNascimento" class="labelCreateClients">Data de Nascimento</label>
+            <input asp-for="DataNascimento" type="date" id="dataNascimento" class="inputCreateClients" placeholder="Doe">
+            <span asp-validation-for="DataNascimento" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Email" for="email" class="labelCreateClients">Email</label>
+            <input asp-for="Email" type="text" id="email" class="inputCreateClients" placeholder="doe@mail.com">
+            <span asp-validation-for="Email" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Celular" for="phone" class="labelCreateClients">Celular</label>
+            <input asp-for="Celular" type="text" id="phone" class="inputCreateClients" placeholder="00-12345-6789">
+            <span asp-validation-for="Celular" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Cpf" for="cpf" class="labelCreateClients">CPF</label>
+            <input asp-for="Cpf" type="text" id="cpf" class="inputCreateClients" placeholder="123-456-789-01">
+            <span asp-validation-for="Cpf" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Rg" for="rg" class="labelCreateClients">RG</label>
+            <input asp-for="Rg" type="number" id="rg" class="inputCreateClients" placeholder="00.00.00.0">
+            <span asp-validation-for="Rg" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+
+        <div>
+            <label asp-for="Genero" for="genero" class="labelCreateClients">Gênero (M-F)</label>
+            <span asp-validation-for="Genero" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+            <select asp-for="Genero" for="genero" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <option value="M">M</option>
+                <option value="F">F</option>
+            </select>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+
+        <div class="mb-6">
+            <label asp-for="Bairro" for="bairro" class="labelCreateClients">Bairro</label>
+            <input asp-for="Bairro" type="text" id="bairro" class="inputCreateClients" placeholder="Trion Masp">
+            <span asp-validation-for="Bairro" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div class="mb-6">
+            <label asp-for="Cidade" for="cidade" class="labelCreateClients">Cidade</label>
+            <input asp-for="Cidade" type="text" id="cidade" class="inputCreateClients" placeholder="São Paulo">
+            <span asp-validation-for="Cidade" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div class="mb-6">
+            <label asp-for="Estado" for="estado" class="labelCreateClients">Estado</label>
+            <input asp-for="Estado" type="text" id="estado" class="inputCreateClients" placeholder="São Paulo">
+            <span asp-validation-for="Estado" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div class="mb-6">
+            <label asp-for="Cep" for="cep" class="labelCreateClients">Cep</label>
+            <input asp-for="Cep" type="number" id="cep" class="inputCreateClients" placeholder="12">
+            <span asp-validation-for="Cep" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div class="mb-6">
+            <label asp-for="Num_Imovel" for="num_Imovel" class="labelCreateClients">Número da Residência</label>
+            <input asp-for="Num_Imovel" type="number" id="num_Imovel" class="inputCreateClients" placeholder="12">
+            <span asp-validation-for="Num_Imovel" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+    </div>
+
+    <button type="submit" class="mb-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cadastrar Cliente</button>
+    <div>
+        <a asp-action="Index" class="underline font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar para lista</a>
+    </div>
+</form>
+
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
