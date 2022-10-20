@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,6 +9,7 @@ namespace TopSegurosBrasil.Models
 {
     public class Cliente
     {
+        [Key()]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "{0} precisa ser preenchido")]
@@ -60,7 +62,7 @@ namespace TopSegurosBrasil.Models
         public int Num_Imovel { get; set; }
 
 
-        public Veiculo Veiculo { get; set; }
+        [ForeignKey("Veiculo")]
         public int VeiculoId { get; set; }
 
 

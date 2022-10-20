@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TopSegurosBrasil.Data;
 
@@ -11,9 +12,10 @@ using TopSegurosBrasil.Data;
 namespace TopSegurosBrasil.Migrations
 {
     [DbContext(typeof(TopSegurosBrasilContext))]
-    partial class TopSegurosBrasilContextModelSnapshot : ModelSnapshot
+    [Migration("20221020141047_novo-banco")]
+    partial class novobanco
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
