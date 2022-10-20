@@ -10,85 +10,85 @@ using TopSegurosBrasil.Models;
 
 namespace TopSegurosBrasil.Controllers
 {
-    public class TiposDeSegurosController : Controller
+    public class VeiculosController : Controller
     {
         private readonly TopSegurosBrasilContext _context;
 
-        public TiposDeSegurosController(TopSegurosBrasilContext context)
+        public VeiculosController(TopSegurosBrasilContext context)
         {
             _context = context;
         }
 
-        // GET: TiposDeSeguros
+        // GET: Veiculos
         public async Task<IActionResult> Index()
         {
-              return View(await _context.TiposDeSeguro.ToListAsync());
+              return View(await _context.Veiculo.ToListAsync());
         }
 
-        // GET: TiposDeSeguros/Details/5
+        // GET: Veiculos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.TiposDeSeguro == null)
+            if (id == null || _context.Veiculo == null)
             {
                 return NotFound();
             }
 
-            var tiposDeSeguro = await _context.TiposDeSeguro
+            var veiculo = await _context.Veiculo
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (tiposDeSeguro == null)
+            if (veiculo == null)
             {
                 return NotFound();
             }
 
-            return View(tiposDeSeguro);
+            return View(veiculo);
         }
 
-        // GET: TiposDeSeguros/Create
+        // GET: Veiculos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: TiposDeSeguros/Create
+        // POST: Veiculos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,DescTipoDeSeguro")] TiposDeSeguro tiposDeSeguro)
+        public async Task<IActionResult> Create([Bind("Id,Chassi,Cor,Marca,Modelo,Placa,ClienteId,ApoliceId")] Veiculo veiculo)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(tiposDeSeguro);
+                _context.Add(veiculo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(tiposDeSeguro);
+            return View(veiculo);
         }
 
-        // GET: TiposDeSeguros/Edit/5
+        // GET: Veiculos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.TiposDeSeguro == null)
+            if (id == null || _context.Veiculo == null)
             {
                 return NotFound();
             }
 
-            var tiposDeSeguro = await _context.TiposDeSeguro.FindAsync(id);
-            if (tiposDeSeguro == null)
+            var veiculo = await _context.Veiculo.FindAsync(id);
+            if (veiculo == null)
             {
                 return NotFound();
             }
-            return View(tiposDeSeguro);
+            return View(veiculo);
         }
 
-        // POST: TiposDeSeguros/Edit/5
+        // POST: Veiculos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,DescTipoDeSeguro")] TiposDeSeguro tiposDeSeguro)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Chassi,Cor,Marca,Modelo,Placa,ClienteId,ApoliceId")] Veiculo veiculo)
         {
-            if (id != tiposDeSeguro.Id)
+            if (id != veiculo.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace TopSegurosBrasil.Controllers
             {
                 try
                 {
-                    _context.Update(tiposDeSeguro);
+                    _context.Update(veiculo);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TiposDeSeguroExists(tiposDeSeguro.Id))
+                    if (!VeiculoExists(veiculo.Id))
                     {
                         return NotFound();
                     }
@@ -113,49 +113,49 @@ namespace TopSegurosBrasil.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(tiposDeSeguro);
+            return View(veiculo);
         }
 
-        // GET: TiposDeSeguros/Delete/5
+        // GET: Veiculos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.TiposDeSeguro == null)
+            if (id == null || _context.Veiculo == null)
             {
                 return NotFound();
             }
 
-            var tiposDeSeguro = await _context.TiposDeSeguro
+            var veiculo = await _context.Veiculo
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (tiposDeSeguro == null)
+            if (veiculo == null)
             {
                 return NotFound();
             }
 
-            return View(tiposDeSeguro);
+            return View(veiculo);
         }
 
-        // POST: TiposDeSeguros/Delete/5
+        // POST: Veiculos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.TiposDeSeguro == null)
+            if (_context.Veiculo == null)
             {
-                return Problem("Entity set 'TopSegurosBrasilContext.TiposDeSeguro'  is null.");
+                return Problem("Entity set 'TopSegurosBrasilContext.Veiculo'  is null.");
             }
-            var tiposDeSeguro = await _context.TiposDeSeguro.FindAsync(id);
-            if (tiposDeSeguro != null)
+            var veiculo = await _context.Veiculo.FindAsync(id);
+            if (veiculo != null)
             {
-                _context.TiposDeSeguro.Remove(tiposDeSeguro);
+                _context.Veiculo.Remove(veiculo);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TiposDeSeguroExists(int id)
+        private bool VeiculoExists(int id)
         {
-          return _context.TiposDeSeguro.Any(e => e.Id == id);
+          return _context.Veiculo.Any(e => e.Id == id);
         }
     }
 }

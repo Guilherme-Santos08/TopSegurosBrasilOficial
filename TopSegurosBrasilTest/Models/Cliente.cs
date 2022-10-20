@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TopSegurosBrasil.Models
 {
-    public class Client
+    public class Cliente
     {
         public int Id { get; set; }
 
@@ -60,25 +60,22 @@ namespace TopSegurosBrasil.Models
         public int Num_Imovel { get; set; }
 
 
-        [Display(Name = "Tipos De Seguros")]
-        public TiposDeSeguro TiposDeSeguro { get; set; }
-        public int TiposDeSeguroId { get; set; }
+        public Veiculo Veiculo { get; set; }
+        public int VeiculoId { get; set; }
 
-/*        public ICollection<Veiculo> Veiculo { get; set; } = new List<Veiculo>();
-*/
 
-        public Client()
+        public Cliente()
         {
 
         }
 
-        public Client(
+        public Cliente(
             int id, string nome, DateTime dataNascimento,
             string email, string celular,
             string cpf, string rg, char genero,
             string bairro, string cidade, string estado,
             int cep, int numImovel,
-            TiposDeSeguro tiposDeSeguro
+            int veiculoId
             )
         {
             Id = id;
@@ -94,7 +91,7 @@ namespace TopSegurosBrasil.Models
             Estado = estado;
             Cep = cep;
             Num_Imovel = numImovel;
-            TiposDeSeguro = tiposDeSeguro;
+            VeiculoId = veiculoId;
         }
     }
 }

@@ -13,9 +13,10 @@ namespace TopSegurosBrasil.Data
             : base(options)
         {
         }
+        public DbSet<TopSegurosBrasil.Models.Apolice> Apolice { get; set; }
+        public DbSet<TopSegurosBrasil.Models.Sinistro> Sinistro { get; set; }
+        public DbSet<TopSegurosBrasil.Models.Veiculo> Veiculo { get; set; }
+        public DbSet<TopSegurosBrasil.Models.Prestador> Prestador { get; set; }
 
-        public DbSet<TopSegurosBrasil.Models.Client> Client { get; set; }
-
-        public DbSet<TopSegurosBrasil.Models.TiposDeSeguro> TiposDeSeguro { get; set; }
     }
 }
