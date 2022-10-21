@@ -23,7 +23,7 @@
         <li aria-current="page">
             <div class="flex items-center">
                 <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                <span class="ml-1 text-sm font-medium text-blue-600 md:ml-2">Criando Clientes</span>
+                <span class="ml-1 text-sm font-medium text-blue-600 md:ml-2">Criar Clientes</span>
             </div>
         </li>
     </ol>
@@ -63,11 +63,11 @@
         </div>
 
         <div>
-            <label asp-for="Genero" for="genero" class="labelCreateClients">Gênero (M-F)</label>
+            <label asp-for="Genero" for="genero" class="labelCreateClients">Gênero</label>
             <span asp-validation-for="Genero" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
             <select asp-for="Genero" for="genero" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                <option value="M">M</option>
-                <option value="F">F</option>
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
             </select>
         </div>
     </div>
@@ -75,12 +75,6 @@
 
 
     <div class="grid gap-6 mb-6 md:grid-cols-2">
-
-        <div class="mb-6">
-            <label asp-for="Bairro" for="bairro" class="labelCreateClients">Bairro</label>
-            <input asp-for="Bairro" type="text" id="bairro" class="inputCreateClients" placeholder="Trion Masp">
-            <span asp-validation-for="Bairro" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
-        </div>
         <div class="mb-6">
             <label asp-for="Cidade" for="cidade" class="labelCreateClients">Cidade</label>
             <input asp-for="Cidade" type="text" id="cidade" class="inputCreateClients" placeholder="São Paulo">
@@ -90,6 +84,11 @@
             <label asp-for="Estado" for="estado" class="labelCreateClients">Estado</label>
             <input asp-for="Estado" type="text" id="estado" class="inputCreateClients" placeholder="São Paulo">
             <span asp-validation-for="Estado" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div class="mb-6">
+            <label asp-for="Bairro" for="bairro" class="labelCreateClients">Bairro</label>
+            <input asp-for="Bairro" type="text" id="bairro" class="inputCreateClients" placeholder="Trion Masp">
+            <span asp-validation-for="Bairro" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div class="mb-6">
             <label asp-for="Cep" for="cep" class="labelCreateClients">Cep</label>
