@@ -4,68 +4,61 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Gerenciar Veiculos</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Criar Veiculo</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Chassi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Marca)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Modelo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Placa)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClienteId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ApoliceId)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Chassi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Marca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Modelo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Placa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClienteId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApoliceId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-3">
+    <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+                <th scope="col" class="py-3 px-6 text-center">
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th scope="col" class="py-3 px-6 text-center">
+                    @Html.DisplayNameFor(model => model.Chassi)
+                </th>
+                <th scope="col" class="py-3 px-6 text-center">
+                    @Html.DisplayNameFor(model => model.Modelo)
+                </th>
+                <th scope="col" class="py-3 px-6 text-center">
+                    @Html.DisplayNameFor(model => model.ClienteId)
+                </th>
+                <th scope="col" class="py-3 px-6 text-center">
+                    @Html.DisplayNameFor(model => model.ApoliceId)
+                </th>
+                <th scope="col" class="py-3 px-6 text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="bg-white border-b">
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-center">
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </th>
+
+                    <td class="py-4 px-6 text-center">
+                        @Html.DisplayFor(modelItem => item.Chassi)
+                    </td>
+                    <td class="py-4 px-6 text-center">
+                        @Html.DisplayFor(modelItem => item.Modelo)
+                    </td>
+                    <td class="py-4 px-6 text-center">
+                        @Html.DisplayFor(modelItem => item.ClienteId)
+                    </td>
+                    <td class="py-4 px-6 text-center">
+                        @Html.DisplayFor(modelItem => item.ApoliceId)
+                    </td>
+                    <td class="py-4 px-6 text-center">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="font-medium text-blue-600 hover:underline">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" class="font-medium text-blue-600 hover:underline">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="font-medium text-blue-600 hover:underline">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
