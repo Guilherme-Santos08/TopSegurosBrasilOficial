@@ -21,13 +21,10 @@
                     @Html.DisplayNameFor(model => model.Chassi)
                 </th>
                 <th scope="col" class="py-3 px-6 text-center">
-                    @Html.DisplayNameFor(model => model.Modelo)
+                    @Html.DisplayNameFor(model => model.Placa)
                 </th>
                 <th scope="col" class="py-3 px-6 text-center">
                     @Html.DisplayNameFor(model => model.ClienteId)
-                </th>
-                <th scope="col" class="py-3 px-6 text-center">
-                    @Html.DisplayNameFor(model => model.ApoliceId)
                 </th>
                 <th scope="col" class="py-3 px-6 text-center"></th>
             </tr>
@@ -44,13 +41,10 @@
                         @Html.DisplayFor(modelItem => item.Chassi)
                     </td>
                     <td class="py-4 px-6 text-center">
-                        @Html.DisplayFor(modelItem => item.Modelo)
+                        @Html.DisplayFor(modelItem => item.Placa)
                     </td>
                     <td class="py-4 px-6 text-center">
                         @Html.DisplayFor(modelItem => item.ClienteId)
-                    </td>
-                    <td class="py-4 px-6 text-center">
-                        @Html.DisplayFor(modelItem => item.ApoliceId)
                     </td>
                     <td class="py-4 px-6 text-center">
                         <a asp-action="Edit" asp-route-id="@item.Id" class="font-medium text-blue-600 hover:underline">Edit</a> |

@@ -26,10 +26,10 @@
                 <span class="ml-1 text-sm font-medium text-gray-700 md:ml-2">Cliente Criado</span>
             </div>
         </li>
-         <li aria-current="page">
+        <li aria-current="page">
             <div class="flex items-center">
                 <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                <span class="ml-1 text-sm font-medium text-blue-600 md:ml-2">Criar Veiculos</span>
+                <span class="ml-1 text-sm font-medium text-blue-600 md:ml-2">Criando Veiculos</span>
             </div>
         </li>
     </ol>
@@ -41,27 +41,25 @@
     <div class="grid gap-6 mb-6 md:grid-cols-2">
         <div>
             <label asp-for="Chassi" for="Chassi" class="labelCreateClients">Chassi</label>
-            <input asp-for="Chassi" type="text" id="Chassi" class="inputCreateClients" placeholder="John" />
+            <input asp-for="Chassi" type="text" id="Chassi" class="inputCreateClients" placeholder="" />
             <span asp-validation-for="Chassi" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div>
             <label asp-for="Cor" for="Cor" class="labelCreateClients">Cor</label>
-            <input asp-for="Cor" type="text" id="Cor" class="inputCreateClients" placeholder="Doe">
+            <input asp-for="Cor" type="text" id="Cor" class="inputCreateClients" placeholder="#0000">
             <span asp-validation-for="Cor" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div>
-            <label asp-for="Marca" for="Marca" class="labelCreateClients">Marca</label>
-            <input asp-for="Marca" type="text" id="Marca" class="inputCreateClients" placeholder="doe@mail.com">
-            <span asp-validation-for="Marca" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+            <label asp-for="FabricanteId" class="labelCreateClients"></label>
+            <select asp-for="FabricanteId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" asp-items="ViewBag.FabricanteId"></select>
         </div>
         <div>
-            <label asp-for="Modelo" for="Modelo" class="labelCreateClients">Modelo</label>
-            <input asp-for="Modelo" type="text" id="Modelo" class="inputCreateClients" placeholder="00-12345-6789">
-            <span asp-validation-for="Modelo" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+            <label asp-for="AnoDosModeloId" class="labelCreateClients"></label>
+            <select asp-for="AnoDosModeloId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" asp-items="ViewBag.AnoDosModeloId"></select>
         </div>
         <div>
             <label asp-for="Placa" for="Placa" class="labelCreateClients">Placa</label>
-            <input asp-for="Placa" type="text" id="Placa" class="inputCreateClients" placeholder="123-456-789-01">
+            <input asp-for="Placa" type="text" id="Placa" class="inputCreateClients" placeholder="DZS-0102">
             <span asp-validation-for="Placa" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div>
@@ -82,7 +80,7 @@
     const myParam = urlParams.get('idUsuario');
     document.getElementById("client_id").value = myParam;
     if (myParam) {
-    document.getElementById("client_id").value = myParam;
+        document.getElementById("client_id").value = myParam;
 
     }
 

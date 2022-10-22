@@ -12,30 +12,35 @@ namespace TopSegurosBrasil.Models
 
 		public string Cor { get; set; }
 
-		public string Marca { get; set; }
+        public Fabricante Fabricante { get; set; }
+        [Required(ErrorMessage = "Fabricante precisa ser preenchido")]
+        [Display(Name = "Fabricante")]
+        public int FabricanteId { get; set; }
 
-		public string Modelo { get; set; }
+        public AnoDosModelo AnoDosModelo { get; set; }
+        [Required(ErrorMessage = "Ano do Modelo precisa ser preenchido")]
+        [Display(Name = "Ano do Modelo")]
+        public int AnoDosModeloId { get; set; }
 
-		public string Placa { get; set; }
+        public string Placa { get; set; }
+
+        public string VersaoDoModelo { get; set; }
 
         [ForeignKey("Cliente")]
 		public int ClienteId { get; set; }
 
-        [ForeignKey("Apolice")]
-        public int ApoliceId { get; set; }
-
 		public Veiculo() { }
 
-        public Veiculo(int id, string chassi, string cor, string marca, string modelo, string placa, int clienteId, int apoliceId)
+        public Veiculo(int id, string chassi, string cor, Fabricante fabricante, AnoDosModelo anoDosModelo, string placa, string versaoDoModelo,int clienteId)
         {
             Id = id;
             Chassi = chassi;
             Cor = cor;
-            Marca = marca;
-            Modelo = modelo;
+            Fabricante = fabricante;
+            AnoDosModelo = anoDosModelo;
             Placa = placa;
+            VersaoDoModelo = versaoDoModelo;
             ClienteId = clienteId;
-            ApoliceId = apoliceId;
         }
     }
 }

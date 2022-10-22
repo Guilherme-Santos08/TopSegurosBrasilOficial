@@ -22,7 +22,8 @@ namespace TopSegurosBrasil.Controllers
         // GET: Veiculos
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Veiculo.ToListAsync());
+            var topSegurosBrasilContext = _context.Veiculo.Include(v => v.AnoDosModelo).Include(v => v.Fabricante);
+            return View(await topSegurosBrasilContext.ToListAsync());
         }
 
         // GET: Veiculos/Details/5
@@ -34,6 +35,8 @@ namespace TopSegurosBrasil.Controllers
             }
 
             var veiculo = await _context.Veiculo
+                .Include(v => v.AnoDosModelo)
+                .Include(v => v.Fabricante)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (veiculo == null)
             {
@@ -46,6 +49,8 @@ namespace TopSegurosBrasil.Controllers
         // GET: Veiculos/Create
         public IActionResult Create()
         {
+            ViewData["AnoDosModeloId"] = new SelectList(_context.AnoDoModelo, "Id", "Id");
+            ViewData["FabricanteId"] = new SelectList(_context.Fabricante, "Id", "Id");
             return View();
         }
 
@@ -54,7 +59,7 @@ namespace TopSegurosBrasil.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Chassi,Cor,Marca,Modelo,Placa,ClienteId,ApoliceId")] Veiculo veiculo)
+        public async Task<IActionResult> Create([Bind("Id,Chassi,Cor,FabricanteId,AnoDosModeloId,Placa,VersaoDoModelo,ClienteId")] Veiculo veiculo)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +67,8 @@ namespace TopSegurosBrasil.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AnoDosModeloId"] = new SelectList(_context.AnoDoModelo, "Id", "Id", veiculo.AnoDosModeloId);
+            ViewData["FabricanteId"] = new SelectList(_context.Fabricante, "Id", "Id", veiculo.FabricanteId);
             return View(veiculo);
         }
 
@@ -78,6 +85,8 @@ namespace TopSegurosBrasil.Controllers
             {
                 return NotFound();
             }
+            ViewData["AnoDosModeloId"] = new SelectList(_context.AnoDoModelo, "Id", "Id", veiculo.AnoDosModeloId);
+            ViewData["FabricanteId"] = new SelectList(_context.Fabricante, "Id", "Id", veiculo.FabricanteId);
             return View(veiculo);
         }
 
@@ -86,7 +95,7 @@ namespace TopSegurosBrasil.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Chassi,Cor,Marca,Modelo,Placa,ClienteId,ApoliceId")] Veiculo veiculo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Chassi,Cor,FabricanteId,AnoDosModeloId,Placa,VersaoDoModelo,ClienteId")] Veiculo veiculo)
         {
             if (id != veiculo.Id)
             {
@@ -113,6 +122,8 @@ namespace TopSegurosBrasil.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AnoDosModeloId"] = new SelectList(_context.AnoDoModelo, "Id", "Id", veiculo.AnoDosModeloId);
+            ViewData["FabricanteId"] = new SelectList(_context.Fabricante, "Id", "Id", veiculo.FabricanteId);
             return View(veiculo);
         }
 
@@ -125,6 +136,8 @@ namespace TopSegurosBrasil.Controllers
             }
 
             var veiculo = await _context.Veiculo
+                .Include(v => v.AnoDosModelo)
+                .Include(v => v.Fabricante)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (veiculo == null)
             {

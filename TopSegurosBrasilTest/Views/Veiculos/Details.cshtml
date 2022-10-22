@@ -23,16 +23,16 @@
             @Html.DisplayFor(model => model.Cor)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Marca)
+            @Html.DisplayNameFor(model => model.Fabricante)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Marca)
+            @Html.DisplayFor(model => model.Fabricante.Id)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Modelo)
+            @Html.DisplayNameFor(model => model.AnoDosModelo)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Modelo)
+            @Html.DisplayFor(model => model.AnoDosModelo.Id)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Placa)
@@ -41,16 +41,16 @@
             @Html.DisplayFor(model => model.Placa)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VersaoDoModelo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VersaoDoModelo)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.ClienteId)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ClienteId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ApoliceId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ApoliceId)
         </dd>
     </dl>
 </div>
