@@ -6,6 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Views\AnoDoModelos\**" />
+    <Content Remove="Views\AnoDoModelos\**" />
+    <EmbeddedResource Remove="Views\AnoDoModelos\**" />
+    <None Remove="Views\AnoDoModelos\**" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="BamButz.MSBuild.TailwindCSS" Version="1.2.3">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

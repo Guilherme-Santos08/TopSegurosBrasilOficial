@@ -18,6 +18,8 @@ namespace TopSegurosBrasil.Data
         public DbSet<TopSegurosBrasil.Models.Veiculo> Veiculo { get; set; }
         public DbSet<TopSegurosBrasil.Models.Prestador> Prestador { get; set; }
         public DbSet<TopSegurosBrasil.Models.Cliente> Cliente { get; set; }
+        public DbSet<TopSegurosBrasil.Models.Fabricante> Fabricante { get; set; }
+        public DbSet<TopSegurosBrasil.Models.AnoDosModelo> AnoDoModelo { get; set; }
 
     }
 }
