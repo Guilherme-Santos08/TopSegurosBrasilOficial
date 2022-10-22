@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TopSegurosBrasil.Data;
 
@@ -11,9 +12,10 @@ using TopSegurosBrasil.Data;
 namespace TopSegurosBrasil.Migrations
 {
     [DbContext(typeof(TopSegurosBrasilContext))]
-    partial class TopSegurosBrasilContextModelSnapshot : ModelSnapshot
+    [Migration("20221022194802_nova-tabela-apolice")]
+    partial class novatabelaapolice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,11 +38,15 @@ namespace TopSegurosBrasil.Migrations
                     b.Property<DateTime>("DataVencimento")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("DescApolice")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("PlanoDoSeguroId")
                         .HasColumnType("int");
 
-                    b.Property<int>("VeiculoId")
-                        .HasColumnType("int");
+                    b.Property<double>("ValorApolice")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

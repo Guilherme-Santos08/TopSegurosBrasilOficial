@@ -12,22 +12,20 @@ namespace TopSegurosBrasil.Models
 
         public DateTime DataVencimento { get; set; }
 
-        public double ValorApolice { get; set; }
-
-        public string DescApolice { get; set; }
-
         [ForeignKey("Veiculo")]
         public int VeiculoId { get; set; }
-        
+
+        public PlanoDoSeguro PlanoDoSeguro { get; set; }
+        public int PlanoDoSeguroId { get; set; }
+
         public Apolice() { }
 
-        public Apolice(int id, DateTime dataInicioContrato, DateTime dataVencimento, double valorApolice, string descApolice, int veiculoId)
+        public Apolice(int id, DateTime dataInicioContrato, DateTime dataVencimento, PlanoDoSeguro planoDoSeguro, int veiculoId)
         {
             Id = id;
             DataInicioContrato = dataInicioContrato;
             DataVencimento = dataVencimento;
-            ValorApolice = valorApolice;
-            DescApolice = descApolice;
+            PlanoDoSeguro = planoDoSeguro;
             VeiculoId = veiculoId;
         }
     }

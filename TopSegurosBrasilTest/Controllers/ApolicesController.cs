@@ -22,7 +22,8 @@ namespace TopSegurosBrasil.Controllers
         // GET: Apolices
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Apolice.ToListAsync());
+            var topSegurosBrasilContext = _context.Apolice.Include(a => a.PlanoDoSeguro);
+            return View(await topSegurosBrasilContext.ToListAsync());
         }
 
         // GET: Apolices/Details/5
@@ -34,6 +35,7 @@ namespace TopSegurosBrasil.Controllers
             }
 
             var apolice = await _context.Apolice
+                .Include(a => a.PlanoDoSeguro)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (apolice == null)
             {
@@ -46,6 +48,7 @@ namespace TopSegurosBrasil.Controllers
         // GET: Apolices/Create
         public IActionResult Create()
         {
+            ViewData["PlanoDoSeguroId"] = new SelectList(_context.Set<PlanoDoSeguro>(), "Id", "Id");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace TopSegurosBrasil.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DataInicioContrato,DataVencimento,ValorApolice,DescApolice,VeiculoId")] Apolice apolice)
+        public async Task<IActionResult> Create([Bind("Id,DataInicioContrato,DataVencimento,VeiculoId,PlanoDoSeguroId")] Apolice apolice)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace TopSegurosBrasil.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["PlanoDoSeguroId"] = new SelectList(_context.Set<PlanoDoSeguro>(), "Id", "Id", apolice.PlanoDoSeguroId);
             return View(apolice);
         }
 
@@ -78,6 +82,7 @@ namespace TopSegurosBrasil.Controllers
             {
                 return NotFound();
             }
+            ViewData["PlanoDoSeguroId"] = new SelectList(_context.Set<PlanoDoSeguro>(), "Id", "Id", apolice.PlanoDoSeguroId);
             return View(apolice);
         }
 
@@ -86,7 +91,7 @@ namespace TopSegurosBrasil.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DataInicioContrato,DataVencimento,ValorApolice,DescApolice,VeiculoId")] Apolice apolice)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DataInicioContrato,DataVencimento,VeiculoId,PlanoDoSeguroId")] Apolice apolice)
         {
             if (id != apolice.Id)
             {
@@ -113,6 +118,7 @@ namespace TopSegurosBrasil.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["PlanoDoSeguroId"] = new SelectList(_context.Set<PlanoDoSeguro>(), "Id", "Id", apolice.PlanoDoSeguroId);
             return View(apolice);
         }
 
@@ -125,6 +131,7 @@ namespace TopSegurosBrasil.Controllers
             }
 
             var apolice = await _context.Apolice
+                .Include(a => a.PlanoDoSeguro)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (apolice == null)
             {
