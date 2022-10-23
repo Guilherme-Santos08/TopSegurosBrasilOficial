@@ -4,30 +4,21 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Criar Fabricante</h1>
 
-<h4>AnoDosModelo</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="AnoModelo" class="control-label"></label>
-                <input asp-for="AnoModelo" class="form-control" />
-                <span asp-validation-for="AnoModelo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<form asp-action="Edit">
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+            <label asp-for="AnoModelo" for="AnoModelo" class="labelCreateClients">Ano do Modelo</label>
+            <input asp-for="AnoModelo" type="text" id="AnoModelo" class="inputCreateClients" placeholder="2022" />
+            <span asp-validation-for="AnoModelo" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <button type="submit" class="mb-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Editar Fabricante</button>
+    <div>
+        <a asp-action="Index" class="underline font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar para lista</a>
+    </div>
+</form>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

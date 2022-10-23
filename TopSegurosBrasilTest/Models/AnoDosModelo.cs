@@ -3,11 +3,11 @@
     public class AnoDosModelo
     {
         public int Id { get; set; }
-        public DateTime AnoModelo { get; set; }
+        public string AnoModelo { get; set; }
 
         public AnoDosModelo() { }
 
-        public AnoDosModelo(int id, DateTime anoModelo)
+        public AnoDosModelo(int id, string anoModelo)
         {
             Id = id;
             AnoModelo = anoModelo;
