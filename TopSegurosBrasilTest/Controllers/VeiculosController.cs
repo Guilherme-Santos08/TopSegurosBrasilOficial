@@ -50,7 +50,7 @@ namespace TopSegurosBrasil.Controllers
         public IActionResult Create()
         {
             ViewData["AnoDosModeloId"] = new SelectList(_context.AnoDoModelo, "Id", "Id");
-            ViewData["FabricanteId"] = new SelectList(_context.Fabricante, "Id", "Id");
+            ViewData["FabricanteId"] = new SelectList(_context.Fabricante, "Id", "NomeDoFabricante");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace TopSegurosBrasil.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["AnoDosModeloId"] = new SelectList(_context.AnoDoModelo, "Id", "Id", veiculo.AnoDosModeloId);
-            ViewData["FabricanteId"] = new SelectList(_context.Fabricante, "Id", "Id", veiculo.FabricanteId);
+            ViewData["FabricanteId"] = new SelectList(_context.Fabricante, "Id", "NomeDoFabricante", veiculo.FabricanteId);
             return View(veiculo);
         }
 
@@ -86,7 +86,7 @@ namespace TopSegurosBrasil.Controllers
                 return NotFound();
             }
             ViewData["AnoDosModeloId"] = new SelectList(_context.AnoDoModelo, "Id", "Id", veiculo.AnoDosModeloId);
-            ViewData["FabricanteId"] = new SelectList(_context.Fabricante, "Id", "Id", veiculo.FabricanteId);
+            ViewData["FabricanteId"] = new SelectList(_context.Fabricante, "Id", "NomeDoFabricante", veiculo.FabricanteId);
             return View(veiculo);
         }
 
@@ -123,7 +123,7 @@ namespace TopSegurosBrasil.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["AnoDosModeloId"] = new SelectList(_context.AnoDoModelo, "Id", "Id", veiculo.AnoDosModeloId);
-            ViewData["FabricanteId"] = new SelectList(_context.Fabricante, "Id", "Id", veiculo.FabricanteId);
+            ViewData["FabricanteId"] = new SelectList(_context.Fabricante, "Id", "NomeDoFabricante", veiculo.FabricanteId);
             return View(veiculo);
         }
 

@@ -4,21 +4,21 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+
+<h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Detalhes Fabricante</h1>
 
 <div>
-    <h4>Fabricante</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NomeDoFabricante)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NomeDoFabricante)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+            <label for="Id" class="labelCreateClients">Nome do Fabricante</label>
+            <input value="@Html.DisplayFor(model => model.Id)" type="text" id="Id" class="inputCreateClients" placeholder="Nome do fabricante" disabled />
+        </div>
+        <div>
+            <label for="NomeDoFabricante" class="labelCreateClients">Nome do Fabricante</label>
+            <input value="@Html.DisplayFor(model => model.NomeDoFabricante)" type="text" id="NomeDoFabricante" class="inputCreateClients" placeholder="Nome do fabricante" disabled />
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index" class="underline font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar para lista</a>
+    </div>
 </div>
