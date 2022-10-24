@@ -12,8 +12,8 @@ using TopSegurosBrasil.Data;
 namespace TopSegurosBrasil.Migrations
 {
     [DbContext(typeof(TopSegurosBrasilContext))]
-    [Migration("20221022201821_add-veiculoid-apolice")]
-    partial class addveiculoidapolice
+    [Migration("20221024182233_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,23 @@ namespace TopSegurosBrasil.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("TopSegurosBrasil.Models.AnoDosModelo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AnoModelo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AnoDoModelo");
+                });
 
             modelBuilder.Entity("TopSegurosBrasil.Models.Apolice", b =>
                 {
@@ -110,6 +127,23 @@ namespace TopSegurosBrasil.Migrations
                     b.ToTable("Cliente");
                 });
 
+            modelBuilder.Entity("TopSegurosBrasil.Models.Fabricante", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("NomeDoFabricante")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Fabricante");
+                });
+
             modelBuilder.Entity("TopSegurosBrasil.Models.PlanoDoSeguro", b =>
                 {
                     b.Property<int>("Id")
@@ -136,8 +170,11 @@ namespace TopSegurosBrasil.Migrations
 
             modelBuilder.Entity("TopSegurosBrasil.Models.Prestador", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Bairro")
                         .IsRequired()
@@ -214,7 +251,7 @@ namespace TopSegurosBrasil.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ApoliceId")
+                    b.Property<int>("AnoDosModeloId")
                         .HasColumnType("int");
 
                     b.Property<string>("Chassi")
@@ -228,19 +265,24 @@ namespace TopSegurosBrasil.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Marca")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Modelo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("FabricanteId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Placa")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("VersaoDoModelo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("AnoDosModeloId");
+
+                    b.HasIndex("ClienteId");
+
+                    b.HasIndex("FabricanteId");
 
                     b.ToTable("Veiculo");
                 });
@@ -254,6 +296,33 @@ namespace TopSegurosBrasil.Migrations
                         .IsRequired();
 
                     b.Navigation("PlanoDoSeguro");
+                });
+
+            modelBuilder.Entity("TopSegurosBrasil.Models.Veiculo", b =>
+                {
+                    b.HasOne("TopSegurosBrasil.Models.AnoDosModelo", "AnoDosModelo")
+                        .WithMany()
+                        .HasForeignKey("AnoDosModeloId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TopSegurosBrasil.Models.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TopSegurosBrasil.Models.Fabricante", "Fabricante")
+                        .WithMany()
+                        .HasForeignKey("FabricanteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AnoDosModelo");
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("Fabricante");
                 });
 #pragma warning restore 612, 618
         }
