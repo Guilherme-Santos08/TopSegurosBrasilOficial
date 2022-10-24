@@ -7,7 +7,7 @@
 <h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Gerenciar Ano dos Modelo</h1>
 
 <p>
-    <a asp-action="Create" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Criar Fabricante</a>
+    <a asp-action="Create" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Criar Ano dos Modelo</a>
 </p>
 
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-3">
@@ -34,9 +34,9 @@
                         @Html.DisplayFor(modelItem => item.AnoModelo)
                     </td>
                     <td class="py-4 px-6 text-center">
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="font-medium text-blue-600 hover:underline">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id" class="font-medium text-blue-600 hover:underline">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="font-medium text-blue-600 hover:underline">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="font-medium text-blue-600 hover:underline">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" class="font-medium text-blue-600 hover:underline">Detalhes</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="font-medium text-blue-600 hover:underline">Deletar</a>
                     </td>
                 </tr>
             }

@@ -4,17 +4,17 @@
     ViewData["Title"] = "Create";
 }
 
-<h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Criar Fabricante</h1>
+<h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Criar Ano do Modelo</h1>
 
 <form asp-action="Create">
     <div class="grid gap-6 mb-6 md:grid-cols-2">
         <div>
-            <label asp-for="AnoModelo" for="AnoModelo" class="labelCreateClients">Nome do Fabricante</label>
-            <input asp-for="AnoModelo" type="text" id="AnoModelo" class="inputCreateClients" placeholder="Nome do fabricante" />
+            <label asp-for="AnoModelo" for="AnoModelo" class="labelCreateClients">Ano do Modelo</label>
+            <input asp-for="AnoModelo" type="text" id="AnoModelo" class="inputCreateClients" placeholder="Ex: Fiat" />
             <span asp-validation-for="AnoModelo" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
     </div>
-    <button type="submit" class="mb-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cadastrar Cliente</button>
+    <button type="submit" class="mb-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Criar Ano do Modelo</button>
     <div>
         <a asp-action="Index" class="underline font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar para lista</a>
     </div>

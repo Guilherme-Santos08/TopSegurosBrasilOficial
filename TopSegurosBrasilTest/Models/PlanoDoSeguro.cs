@@ -1,10 +1,19 @@
-﻿namespace TopSegurosBrasil.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TopSegurosBrasil.Models
 {
     public class PlanoDoSeguro
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "{0} precisa ser preenchido")]
+        [Display(Name = "Nome do Plano")]
         public string NomeDoPlano { get; set; }
+
+        [Required(ErrorMessage = "{0} precisa ser preenchido")]
+        [Display(Name = "Preço")]
         public double Preco { get; set; }
+
         public string AnexoPdf { get; set; }
 
         public PlanoDoSeguro() {}
