@@ -4,8 +4,7 @@ namespace TopSegurosBrasil.Models
 {
     public class Prestador
     {
-        [Key()]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string NomeEmpresa { get; set; }
         public string Cnpj { get; set; }
@@ -21,7 +20,7 @@ namespace TopSegurosBrasil.Models
 
         public Prestador() { }
 
-        public Prestador(string id, string nomeEmpresa, string cnpj, string tipoPrestador, string email, string telefone, string bairro, string cidade, string estado, int cep, int num_Imovel)
+        public Prestador(int id, string nomeEmpresa, string cnpj, string tipoPrestador, string email, string telefone, string bairro, string cidade, string estado, int cep, int num_Imovel)
         {
             Id = id;
             NomeEmpresa = nomeEmpresa;

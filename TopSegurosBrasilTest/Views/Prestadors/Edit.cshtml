@@ -1,79 +1,110 @@
 ﻿@model TopSegurosBrasil.Models.Prestador
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
 }
 
-<h1>Edit</h1>
+<h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Editar Prestador</h1>
 
-<h4>Prestador</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="NomeEmpresa" class="control-label"></label>
-                <input asp-for="NomeEmpresa" class="form-control" />
-                <span asp-validation-for="NomeEmpresa" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cnpj" class="control-label"></label>
-                <input asp-for="Cnpj" class="form-control" />
-                <span asp-validation-for="Cnpj" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TipoPrestador" class="control-label"></label>
-                <input asp-for="TipoPrestador" class="form-control" />
-                <span asp-validation-for="TipoPrestador" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Telefone" class="control-label"></label>
-                <input asp-for="Telefone" class="form-control" />
-                <span asp-validation-for="Telefone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Bairro" class="control-label"></label>
-                <input asp-for="Bairro" class="form-control" />
-                <span asp-validation-for="Bairro" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cidade" class="control-label"></label>
-                <input asp-for="Cidade" class="form-control" />
-                <span asp-validation-for="Cidade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Estado" class="control-label"></label>
-                <input asp-for="Estado" class="form-control" />
-                <span asp-validation-for="Estado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cep" class="control-label"></label>
-                <input asp-for="Cep" class="form-control" />
-                <span asp-validation-for="Cep" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Num_Imovel" class="control-label"></label>
-                <input asp-for="Num_Imovel" class="form-control" />
-                <span asp-validation-for="Num_Imovel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div>
+            <label asp-for="NomeEmpresa" class="labelCreateClients">Nome da Empresa</label>
+            <input asp-for="NomeEmpresa" class="inputCreateClients" />
+            <span asp-validation-for="NomeEmpresa" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Cnpj" class="labelCreateClients">CNPJ</label>
+            <input asp-for="Cnpj" class="inputCreateClients" />
+            <span asp-validation-for="Cnpj" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="TipoPrestador" for="TipoPrestador" class="labelCreateClients">Tipo do Prestador</label>
+            <select asp-for="TipoPrestador" id="TipoPrestador" name="TipoPrestador" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <option value="Mecanico">Mecânicos</option>
+                <option value="Reboque">Reboque</option>
+                <option value="Vidraceiro">Vidraceiro</option>
+                <option value="Chaveiro">Chaveiro</option>
+            </select>
+            <span asp-validation-for="TipoPrestador" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Email" class="labelCreateClients">Email</label>
+            <input asp-for="Email" class="inputCreateClients" />
+            <span asp-validation-for="Email" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Telefone" class="labelCreateClients">Telefone</label>
+            <input asp-for="Telefone" class="inputCreateClients" />
+            <span asp-validation-for="Telefone" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Estado" for="Estado" class="labelCreateClients">Estado</label>
+            <select asp-for="Estado" id="Estado" name="Estado" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+                <option value="EX">Estrangeiro</option>
+            </select>
+            <span asp-validation-for="Estado" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+
+        <div>
+            <label asp-for="Cidade" class="labelCreateClients">Cidade</label>
+            <input asp-for="Cidade" class="inputCreateClients" />
+            <span asp-validation-for="Cidade" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Bairro" class="labelCreateClients">Bairro</label>
+            <input asp-for="Bairro" class="inputCreateClients" />
+            <span asp-validation-for="Bairro" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Cep" class="labelCreateClients">CEP</label>
+            <input asp-for="Cep" class="inputCreateClients" />
+            <span asp-validation-for="Cep" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Num_Imovel" class="labelCreateClients">Numero do imóvel</label>
+            <input asp-for="Num_Imovel" class="inputCreateClients" />
+            <span asp-validation-for="Num_Imovel" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <button type="submit" class="mb-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Editar Prestador</button>
+    <div>
+        <a asp-action="Index" class="underline font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar para lista</a>
+    </div>
+</form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

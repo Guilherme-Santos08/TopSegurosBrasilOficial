@@ -10,7 +10,7 @@ using TopSegurosBrasil.Models;
 
 namespace TopSegurosBrasil.Controllers
 {
-    public class PrestadorsController : Controller
+    public class PrestadorsController : Controller  
     {
         private readonly TopSegurosBrasilContext _context;
 
@@ -26,7 +26,7 @@ namespace TopSegurosBrasil.Controllers
         }
 
         // GET: Prestadors/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Prestador == null)
             {
@@ -66,7 +66,7 @@ namespace TopSegurosBrasil.Controllers
         }
 
         // GET: Prestadors/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Prestador == null)
             {
@@ -86,7 +86,7 @@ namespace TopSegurosBrasil.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,NomeEmpresa,Cnpj,TipoPrestador,Email,Telefone,Bairro,Cidade,Estado,Cep,Num_Imovel")] Prestador prestador)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NomeEmpresa,Cnpj,TipoPrestador,Email,Telefone,Bairro,Cidade,Estado,Cep,Num_Imovel")] Prestador prestador)
         {
             if (id != prestador.Id)
             {
@@ -117,7 +117,7 @@ namespace TopSegurosBrasil.Controllers
         }
 
         // GET: Prestadors/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Prestador == null)
             {
@@ -137,7 +137,7 @@ namespace TopSegurosBrasil.Controllers
         // POST: Prestadors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Prestador == null)
             {
@@ -153,7 +153,7 @@ namespace TopSegurosBrasil.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PrestadorExists(string id)
+        private bool PrestadorExists(int id)
         {
           return _context.Prestador.Any(e => e.Id == id);
         }
