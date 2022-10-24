@@ -6,6 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<VeiculoService>();
+builder.Services.AddScoped<FabricanteService>();
+builder.Services.AddScoped<AnoDosModeloService>();
 
 builder.Services.AddDbContext<TopSegurosBrasilContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TopSegurosBrasilContext"), builderr =>

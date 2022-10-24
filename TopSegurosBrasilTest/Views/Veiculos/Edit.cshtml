@@ -1,64 +1,52 @@
-﻿@model TopSegurosBrasil.Models.Veiculo
+﻿@model TopSegurosBrasil.Models.ViewModels.VeiculoFormViewModel
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Editar Veiculo</h1>
 
-<h4>Veiculo</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Chassi" class="control-label"></label>
-                <input asp-for="Chassi" class="form-control" />
-                <span asp-validation-for="Chassi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cor" class="control-label"></label>
-                <input asp-for="Cor" class="form-control" />
-                <span asp-validation-for="Cor" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FabricanteId" class="control-label"></label>
-                <select asp-for="FabricanteId" class="form-control" asp-items="ViewBag.FabricanteId"></select>
-                <span asp-validation-for="FabricanteId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AnoDosModeloId" class="control-label"></label>
-                <select asp-for="AnoDosModeloId" class="form-control" asp-items="ViewBag.AnoDosModeloId"></select>
-                <span asp-validation-for="AnoDosModeloId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Placa" class="control-label"></label>
-                <input asp-for="Placa" class="form-control" />
-                <span asp-validation-for="Placa" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VersaoDoModelo" class="control-label"></label>
-                <input asp-for="VersaoDoModelo" class="form-control" />
-                <span asp-validation-for="VersaoDoModelo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClienteId" class="control-label"></label>
-                <input asp-for="ClienteId" class="form-control" />
-                <span asp-validation-for="ClienteId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Veiculo.Id" />
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+            <label asp-for="Veiculo.Chassi" class="labelCreateClients">Chassi</label>
+            <input asp-for="Veiculo.Chassi" class="inputCreateClients" />
+            <span asp-validation-for="Veiculo.Chassi" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Veiculo.Cor" class="labelCreateClients">Cor</label>
+            <input asp-for="Veiculo.Cor" class="inputCreateClients" />
+            <span asp-validation-for="Veiculo.Cor" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Veiculo.FabricanteId" class="labelCreateClients">Fabricantes</label>
+            <select asp-for="Veiculo.FabricanteId" asp-items="@(new SelectList(Model.Fabricantes,"Id","NomeDoFabricante"))" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></select>
+            <span asp-validation-for="Veiculo.FabricanteId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Veiculo.AnoDosModeloId" class="labelCreateClients">Ano dos Modelo</label>
+            <select asp-for="Veiculo.AnoDosModeloId" asp-items="@(new SelectList(Model.AnoDosModelos,"Id","AnoModelo"))" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></select>
+            <span asp-validation-for="Veiculo.AnoDosModeloId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Veiculo.VersaoDoModelo" class="labelCreateClients">Versão do Modelo</label>
+            <input asp-for="Veiculo.VersaoDoModelo" class="inputCreateClients" />
+            <span asp-validation-for="Veiculo.VersaoDoModelo" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Veiculo.Placa" class="labelCreateClients">Placa</label>
+            <input asp-for="Veiculo.Placa" class="inputCreateClients" />
+            <span asp-validation-for="Veiculo.Placa" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Veiculo.ClienteId" class="labelCreateClients">Id do Cliente</label>
+            <input asp-for="Veiculo.ClienteId" class="inputCreateClients" />
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    <button type="submit" class="mb-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Editar Veiculo</button>
+    <div>
+        <a asp-action="Index" class="underline font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar para lista</a>
+    </div>
+</form>

@@ -1,4 +1,4 @@
-﻿@model TopSegurosBrasil.Models.Veiculo
+﻿@model TopSegurosBrasil.Models.ViewModels.VeiculoFormViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -40,32 +40,37 @@
 <form asp-action="Create">
     <div class="grid gap-6 mb-6 md:grid-cols-2">
         <div>
-            <label asp-for="Chassi" for="Chassi" class="labelCreateClients">Chassi</label>
-            <input asp-for="Chassi" type="text" id="Chassi" class="inputCreateClients" placeholder="" />
-            <span asp-validation-for="Chassi" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+            <label asp-for="Veiculo.Chassi" for="Chassi" class="labelCreateClients">Chassi</label>
+            <input asp-for="Veiculo.Chassi" type="text" id="Chassi" class="inputCreateClients" placeholder="" />
+            <span asp-validation-for="Veiculo.Chassi" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div>
-            <label asp-for="Cor" for="Cor" class="labelCreateClients">Cor</label>
-            <input asp-for="Cor" type="text" id="Cor" class="inputCreateClients" placeholder="#0000">
-            <span asp-validation-for="Cor" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+            <label asp-for="Veiculo.Cor" for="Cor" class="labelCreateClients">Cor</label>
+            <input asp-for="Veiculo.Cor" type="text" id="Cor" class="inputCreateClients" placeholder="#0000">
+            <span asp-validation-for="Veiculo.Cor" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div>
-            <label asp-for="FabricanteId" class="labelCreateClients"></label>
-            <select asp-for="FabricanteId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" asp-items="ViewBag.FabricanteId"></select>
+            <label asp-for="Veiculo.FabricanteId" class="labelCreateClients"></label>
+            <select asp-for="Veiculo.FabricanteId" asp-items="@(new SelectList(Model.Fabricantes,"Id","NomeDoFabricante"))" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></select>
         </div>
         <div>
-            <label asp-for="AnoDosModeloId" class="labelCreateClients"></label>
-            <select asp-for="AnoDosModeloId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" asp-items="ViewBag.AnoDosModeloId"></select>
+            <label asp-for="Veiculo.AnoDosModeloId" class="labelCreateClients"></label>
+            <select asp-for="Veiculo.AnoDosModeloId" asp-items="@(new SelectList(Model.AnoDosModelos,"Id","AnoModelo"))" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></select>
+        </div>
+       <div>
+            <label asp-for="Veiculo.VersaoDoModelo" for="VersaoDoModelo" class="labelCreateClients">Placa</label>
+            <input asp-for="Veiculo.VersaoDoModelo" type="text" id="VersaoDoModelo" class="inputCreateClients" placeholder="DZS-0102">
+            <span asp-validation-for="Veiculo.VersaoDoModelo" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div>
-            <label asp-for="Placa" for="Placa" class="labelCreateClients">Placa</label>
-            <input asp-for="Placa" type="text" id="Placa" class="inputCreateClients" placeholder="DZS-0102">
-            <span asp-validation-for="Placa" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+            <label asp-for="Veiculo.Placa" for="Placa" class="labelCreateClients">Placa</label>
+            <input asp-for="Veiculo.Placa" type="text" id="Placa" class="inputCreateClients" placeholder="DZS-0102">
+            <span asp-validation-for="Veiculo.Placa" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div>
-            <label asp-for="ClienteId" for="ClienteId" class="labelCreateClients">Client Id</label>
-            <input asp-for="ClienteId" type="number" id="ClienteId" class="inputCreateClients" placeholder="00.00.00.0">
-            <span asp-validation-for="ClienteId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+            <label asp-for="Veiculo.ClienteId" for="client_id" class="labelCreateClients">Client Id</label>
+            <input asp-for="Veiculo.ClienteId" type="number" id="client_id" class="inputCreateClients" placeholder="00.00.00.0">
+            <span asp-validation-for="Veiculo.ClienteId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
     </div>
 
