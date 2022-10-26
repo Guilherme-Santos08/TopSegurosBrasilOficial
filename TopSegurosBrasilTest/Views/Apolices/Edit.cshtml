@@ -1,4 +1,4 @@
-﻿@model TopSegurosBrasil.Models.Apolice
+﻿@model TopSegurosBrasil.Models.ViewModels.ApoliceFormViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -7,29 +7,30 @@
 <h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Editar Apolice</h1>
 
 <form asp-action="Edit">
+    <input type="hidden" asp-for="Apolice.Id" />
     <div class="grid gap-6 mb-6 md:grid-cols-2">
         <div>
-            <label asp-for="DataInicioContrato" for="DataInicioContrato" class="labelCreateClients">Inicio do Contrato</label>
-            <input asp-for="DataInicioContrato" type="date" id="DataInicioContrato" class="inputCreateClients" placeholder="" />
-            <span asp-validation-for="DataInicioContrato" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+            <label asp-for="Apolice.DataInicioContrato" for="DataInicioContrato" class="labelCreateClients">Inicio do Contrato</label>
+            <input asp-for="Apolice.DataInicioContrato" type="date" id="DataInicioContrato" class="inputCreateClients" placeholder="" />
+            <span asp-validation-for="Apolice.DataInicioContrato" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div>
-            <label asp-for="DataVencimento" for="DataVencimento" class="labelCreateClients">Validade do Contrato</label>
-            <input asp-for="DataVencimento" type="date" id="DataVencimento" class="inputCreateClients" placeholder="" />
-            <span asp-validation-for="DataVencimento" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+            <label asp-for="Apolice.DataVencimento" for="DataVencimento" class="labelCreateClients">Validade do Contrato</label>
+            <input asp-for="Apolice.DataVencimento" type="date" id="DataVencimento" class="inputCreateClients" placeholder="" />
+            <span asp-validation-for="Apolice.DataVencimento" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div>
-            <label asp-for="VeiculoId" for="VeiculoId" class="labelCreateClients">Veiculo Id</label>
-            <input asp-for="VeiculoId" type="number" id="VeiculoId" class="inputCreateClients" placeholder="" />
-            <span asp-validation-for="VeiculoId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+            <label asp-for="Apolice.VeiculoId" for="VeiculoId" class="labelCreateClients">Veiculo Id</label>
+            <input asp-for="Apolice.VeiculoId" type="number" id="VeiculoId" class="inputCreateClients" placeholder="" />
+            <span asp-validation-for="Apolice.VeiculoId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div>
-            <label asp-for="PlanoDoSeguroId" for="PlanoDoSeguroId" class="labelCreateClients">Plano do Seguro Id</label>
-            <input asp-for="PlanoDoSeguroId" type="number" id="PlanoDoSeguroId" class="inputCreateClients" placeholder="" />
-            <span asp-validation-for="PlanoDoSeguroId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+            <label asp-for="Apolice.PlanoDoSeguroId" for="PlanoDoSeguroId" class="labelCreateClients">Plano do Seguro Id</label>
+            <select asp-for="Apolice.PlanoDoSeguroId" asp-items="@(new SelectList(Model.PlanoDoSeguros,"Id","NomeDoPlano"))" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></select>
+            <span asp-validation-for="Apolice.PlanoDoSeguroId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
     </div>
-    <button type="submit" class="mb-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cadastrar Cliente</button>
+    <button type="submit" class="mb-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Editar Cliente</button>
     <div>
         <a asp-action="Index" class="underline font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar para lista</a>
     </div>

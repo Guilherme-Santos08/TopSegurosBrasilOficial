@@ -9,6 +9,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<VeiculoService>();
 builder.Services.AddScoped<FabricanteService>();
 builder.Services.AddScoped<AnoDosModeloService>();
+builder.Services.AddScoped<ApoliceService>();
+builder.Services.AddScoped<PlanoDoSeguroService>();
 
 builder.Services.AddDbContext<TopSegurosBrasilContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TopSegurosBrasilContext"), builderr =>
