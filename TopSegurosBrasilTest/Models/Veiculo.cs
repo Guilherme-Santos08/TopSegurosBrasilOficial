@@ -5,6 +5,7 @@ namespace TopSegurosBrasil.Models
 {
     public class Veiculo
     {
+        [Key()]
         public int Id { get; set; }
 
 		public string Chassi { get; set; }
@@ -25,7 +26,7 @@ namespace TopSegurosBrasil.Models
 
         public string VersaoDoModelo { get; set; }
 
-        public Cliente Cliente { get; set; }
+        [ForeignKey("Cliente")]
 		public int ClienteId { get; set; }
 
 		public Veiculo() { }

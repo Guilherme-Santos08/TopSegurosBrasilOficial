@@ -39,10 +39,10 @@ namespace TopSegurosBrasil.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Veiculo seller)
+        public IActionResult Create(Veiculo veiculo)
         {
-            _veiculoService.Insert(seller);
-            return RedirectToAction(nameof(Index));
+            _veiculoService.Insert(veiculo);
+            return RedirectToAction("Create", "Apolices", new { idVeiculo = veiculo.Id });
         }
 
         public IActionResult Delete(int? id)
