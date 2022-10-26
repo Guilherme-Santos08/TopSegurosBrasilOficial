@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TopSegurosBrasil.Models.PlanoDoSeguro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Gerenciar Planos</h1>
+
+<p>
+    <a asp-action="Create" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Criar plano</a>
+</p>
+
+
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-3">
+    <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+                <th scope="col" class="py-3 px-6 text-center">
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th scope="col" class="py-3 px-6 text-center">
+                    @Html.DisplayNameFor(model => model.NomeDoPlano)
+                </th>
+                <th scope="col" class="py-3 px-6 text-center">
+                    @Html.DisplayNameFor(model => model.Preco)
+                </th>
+                <th scope="col" class="py-3 px-6 text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="bg-white border-b">
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-center">
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </th>
+                    <td class="py-4 px-6 text-center">
+                        @Html.DisplayFor(modelItem => item.NomeDoPlano)
+                    </td>
+                    <td class="py-4 px-6 text-center">
+                        @Html.DisplayFor(modelItem => item.Preco)
+                    </td>
+                    <td class="py-4 px-6 text-center">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="font-medium text-blue-600 hover:underline">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" class="font-medium text-blue-600 hover:underline">Detalhes</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="font-medium text-blue-600 hover:underline">Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

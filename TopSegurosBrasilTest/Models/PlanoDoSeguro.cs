@@ -14,6 +14,9 @@ namespace TopSegurosBrasil.Models
         [Display(Name = "Preço")]
         public double Preco { get; set; }
 
+
+        [Required(ErrorMessage = "{0} precisa ser preenchido")]
+        [Display(Name = "Anexo pdf")]
         public string AnexoPdf { get; set; }
 
         public PlanoDoSeguro() {}
