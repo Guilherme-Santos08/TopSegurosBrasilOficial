@@ -18,8 +18,8 @@
             <span asp-validation-for="Apolice.DataVencimento" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div>
-            <label asp-for="Apolice.VeiculoId" for="VeiculoId" class="labelCreateClients">Veiculo Id</label>
-            <input asp-for="Apolice.VeiculoId" type="number" id="VeiculoId" class="inputCreateClients" placeholder="" />
+            <label asp-for="Apolice.VeiculoId" for="veiculo_id" class="labelCreateClients hidden">Veiculo Id</label>
+            <input asp-for="Apolice.VeiculoId" type="number" id="veiculo_id" class="inputCreateClients hidden" placeholder="" />
             <span asp-validation-for="Apolice.VeiculoId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div>
@@ -33,6 +33,16 @@
         <a asp-action="Index" class="underline font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar para lista</a>
     </div>
 </form>
+
+<script type="text/javascript">
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('idVeiculo');
+    document.getElementById("veiculo_id").value = myParam;
+    if (myParam) {
+        document.getElementById('veiculo_id').disabled = false;
+    }
+
+</script>
 
 @section Scripts {
     @{

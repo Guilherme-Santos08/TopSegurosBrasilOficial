@@ -58,7 +58,7 @@
             <select asp-for="Veiculo.AnoDosModeloId" asp-items="@(new SelectList(Model.AnoDosModelos,"Id","AnoModelo"))" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></select>
         </div>
        <div>
-            <label asp-for="Veiculo.VersaoDoModelo" for="VersaoDoModelo" class="labelCreateClients">Placa</label>
+            <label asp-for="Veiculo.VersaoDoModelo" for="VersaoDoModelo" class="labelCreateClients">Versão do Modelo</label>
             <input asp-for="Veiculo.VersaoDoModelo" type="text" id="VersaoDoModelo" class="inputCreateClients" placeholder="DZS-0102">
             <span asp-validation-for="Veiculo.VersaoDoModelo" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
@@ -85,8 +85,7 @@
     const myParam = urlParams.get('idUsuario');
     document.getElementById("client_id").value = myParam;
     if (myParam) {
-        document.getElementById("client_id").value = myParam;
-
+        document.getElementById('client_id').disabled = true;
     }
 
 </script>
