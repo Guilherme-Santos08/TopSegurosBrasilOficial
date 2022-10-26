@@ -4,57 +4,40 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Detalhes do Veiculo</h1>
 
 <div>
-    <h4>Veiculo</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Chassi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Chassi)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cor)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cor)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fabricante)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fabricante.NomeDoFabricante)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AnoDosModelo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AnoDosModelo.AnoModelo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Placa)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Placa)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VersaoDoModelo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VersaoDoModelo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ClienteId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ClienteId)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+            <label for="Chassi" class="labelCreateClients">Chassi</label>
+            <input value="@Html.DisplayFor(model => model.Chassi)" id="Chassi" class="inputCreateClients" disabled />
+        </div>
+        <div>
+            <label for="Cor" class="labelCreateClients">Cor</label>
+            <input value="@Html.DisplayFor(model => model.Cor)" id="Cor" class="inputCreateClients" disabled />
+        </div>
+        <div>
+            <label for="Fabricante" class="labelCreateClients">Fabricante</label>
+            <input value="@Html.DisplayFor(model => model.Fabricante.NomeDoFabricante)" id="Fabricante" class="inputCreateClients" disabled />
+        </div>
+        <div>
+            <label for="AnoDosModelo" class="labelCreateClients">Ano do Modelo</label>
+            <input value="@Html.DisplayFor(model => model.AnoDosModelo.AnoModelo)" id="AnoDosModelo" class="inputCreateClients" disabled />
+        </div>
+        <div>
+            <label for="Placa" class="labelCreateClients">Placa</label>
+            <input value="@Html.DisplayFor(model => model.Placa)" id="Placa" class="inputCreateClients" disabled />
+        </div>
+        <div>
+            <label for="NomeDoFabricante" class="labelCreateClients">Versão do Modelo</label>
+            <input value="@Html.DisplayFor(model => model.VersaoDoModelo)" id="NomeDoFabricante" class="inputCreateClients" disabled />
+        </div>
+        <div>
+            <label for="ClienteId" class="labelCreateClients">Cliente Id</label>
+            <input value="@Html.DisplayFor(model => model.ClienteId)" id="ClienteId" class="inputCreateClients" disabled />
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index" class="underline font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar para lista</a>
+    </div>
 </div>
