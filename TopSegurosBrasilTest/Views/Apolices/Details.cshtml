@@ -4,39 +4,35 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Detalhes da Apolice</h1>
 
 <div>
-    <h4>Apolice</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataInicioContrato)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataInicioContrato)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataVencimento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataVencimento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VeiculoId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VeiculoId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PlanoDoSeguro)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PlanoDoSeguro.Id)
-        </dd>
-    </dl>
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+            <label for="DataInicioContrato" class="labelCreateClients">Inicio do Contrato</label>
+            <input value="@Html.DisplayFor(model => model.DataInicioContrato)" type="date" id="DataInicioContrato" class="inputCreateClients" placeholder="" />
+        </div>
+        <div>
+            <label for="DataVencimento" class="labelCreateClients">Validade do Contrato</label>
+            <input value="@Html.DisplayFor(model => model.DataVencimento)" type="date" id="DataVencimento" class="inputCreateClients" placeholder="" />
+        </div>
+        <div>
+            <label for="VeiculoId" class="labelCreateClients">Veiculo Id</label>
+            <input value="@Html.DisplayFor(model => model.VeiculoId)" type="number" id="VeiculoId" class="inputCreateClients" placeholder="" />
+        </div>
+        <div>
+            <label for="PlanoDoSeguroId" class="labelCreateClients">Plano do Seguro Id</label>
+            <input value="@Html.DisplayFor(model => model.PlanoDoSeguro.NomeDoPlano)" type="number" id="PlanoDoSeguroId" class="inputCreateClients" placeholder="" />
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" class="underline font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar para lista</a>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

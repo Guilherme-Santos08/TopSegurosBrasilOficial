@@ -4,46 +4,39 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900">Editar Apolice</h1>
 
-<h4>Apolice</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="DataInicioContrato" class="control-label"></label>
-                <input asp-for="DataInicioContrato" class="form-control" />
-                <span asp-validation-for="DataInicioContrato" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataVencimento" class="control-label"></label>
-                <input asp-for="DataVencimento" class="form-control" />
-                <span asp-validation-for="DataVencimento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VeiculoId" class="control-label"></label>
-                <input asp-for="VeiculoId" class="form-control" />
-                <span asp-validation-for="VeiculoId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PlanoDoSeguroId" class="control-label"></label>
-                <select asp-for="PlanoDoSeguroId" class="form-control" asp-items="ViewBag.PlanoDoSeguroId"></select>
-                <span asp-validation-for="PlanoDoSeguroId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<form asp-action="Edit">
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+            <label asp-for="DataInicioContrato" for="DataInicioContrato" class="labelCreateClients">Inicio do Contrato</label>
+            <input asp-for="DataInicioContrato" type="date" id="DataInicioContrato" class="inputCreateClients" placeholder="" />
+            <span asp-validation-for="DataInicioContrato" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="DataVencimento" for="DataVencimento" class="labelCreateClients">Validade do Contrato</label>
+            <input asp-for="DataVencimento" type="date" id="DataVencimento" class="inputCreateClients" placeholder="" />
+            <span asp-validation-for="DataVencimento" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="VeiculoId" for="VeiculoId" class="labelCreateClients">Veiculo Id</label>
+            <input asp-for="VeiculoId" type="number" id="VeiculoId" class="inputCreateClients" placeholder="" />
+            <span asp-validation-for="VeiculoId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="PlanoDoSeguroId" for="PlanoDoSeguroId" class="labelCreateClients">Plano do Seguro Id</label>
+            <input asp-for="PlanoDoSeguroId" type="number" id="PlanoDoSeguroId" class="inputCreateClients" placeholder="" />
+            <span asp-validation-for="PlanoDoSeguroId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <button type="submit" class="mb-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cadastrar Cliente</button>
+    <div>
+        <a asp-action="Index" class="underline font-medium text-blue-600 dark:text-blue-500 hover:underline">Voltar para lista</a>
+    </div>
+</form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
