@@ -25,7 +25,7 @@
 
 
 <p>
-    <a asp-action="Create" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Criar Fabricante</a>
+    <a asp-action="Create" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Criar Apolice</a>
 </p>
 
 
@@ -45,9 +45,6 @@
                 <th scope="col" class="py-3 px-6 text-center">
                     @Html.DisplayNameFor(model => model.VeiculoId)
                 </th>
-                <th scope="col" class="py-3 px-6 text-center">
-                    @Html.DisplayNameFor(model => model.PlanoDoSeguro)
-                </th>
                 <th scope="col" class="py-3 px-6 text-center"></th>
             </tr>
         </thead>
@@ -66,9 +63,6 @@
                     </td>
                     <td class="py-4 px-6 text-center">
                         @Html.DisplayFor(modelItem => item.VeiculoId)
-                    </td>
-                    <td class="py-4 px-6 text-center">
-                        @Html.DisplayFor(modelItem => item.PlanoDoSeguro.NomeDoPlano)
                     </td>
                     <td class="py-4 px-6 text-center">
                         <a asp-action="Edit" asp-route-id="@item.Id" class="font-medium text-blue-600 hover:underline">Editar</a> |
