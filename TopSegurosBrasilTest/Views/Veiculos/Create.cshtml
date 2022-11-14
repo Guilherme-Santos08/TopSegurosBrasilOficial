@@ -87,7 +87,7 @@
         </div>
         <div>
             <label asp-for="Veiculo.ClienteId" for="client_id" class="labelCreateClients">Client Id</label>
-            <input asp-for="Veiculo.ClienteId" type="number" id="client_id" class="inputCreateClients" placeholder="00.00.00.0">
+            <input asp-for="Veiculo.ClienteId" id="client_id" class="inputCreateClients" />
             <span asp-validation-for="Veiculo.ClienteId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
     </div>
@@ -106,10 +106,11 @@
     const criandoApenasVeiculo = document.getElementById("criando-apenas-veiculo")
     const clientIdInput = document.getElementById("client_id")
 
+    console.log('oi',myParam)
+
     clientIdInput.value = myParam;
 
     if (myParam) {
-        clientIdInput.disabled = true;
         criandoCliente.classList.add("block");
         criandoCliente.classList.remove("hidden");
 
