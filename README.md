@@ -12,7 +12,6 @@ Para o Banco de Dados decidimos usar o SQl Server, também hospedados no Azure.
 ## Requisitos
 
 <article id="5b2c7498-36bc-4e68-8f7d-43c3f8a8139e" class="page sans">
-      <header><h1 class="page-title">Requisitos 2</h1></header>
       <div class="page-body">
         <p id="bc8b6e23-6d1b-4034-a2b8-0d5b2956f814" class="">
           <strong>Quadro 1</strong> – Planos
