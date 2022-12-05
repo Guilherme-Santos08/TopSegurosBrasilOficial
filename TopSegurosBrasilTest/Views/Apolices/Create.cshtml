@@ -70,14 +70,14 @@
             <span asp-validation-for="Apolice.DataVencimento" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div>
-            <label asp-for="Apolice.VeiculoId" for="veiculo_id" class="labelCreateClients hidden">Veiculo Id</label>
-            <input asp-for="Apolice.VeiculoId" type="number" id="veiculo_id" class="inputCreateClients hidden" placeholder="" />
-            <span asp-validation-for="Apolice.VeiculoId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
-        </div>
-        <div>
             <label asp-for="Apolice.PlanoDoSeguroId" for="PlanoDoSeguroId" class="labelCreateClients">Plano do Seguro Id</label>
             <select asp-for="Apolice.PlanoDoSeguroId" asp-items="@(new SelectList(Model.PlanoDoSeguros,"Id","NomeDoPlano"))" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></select>
             <span asp-validation-for="Apolice.PlanoDoSeguroId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
+        </div>
+        <div>
+            <label asp-for="Apolice.VeiculoId" for="veiculo_id" class="labelCreateClients hidden" id="veiculoIdLabel">Veiculo Id</label>
+            <input asp-for="Apolice.VeiculoId" type="number" id="veiculo_id" class="inputCreateClients hidden" placeholder="" />
+            <span asp-validation-for="Apolice.VeiculoId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
     </div>
     <button type="submit" class="mb-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cadastrar Cliente</button>
@@ -93,12 +93,16 @@
     const criandoApolice = document.getElementById("criando-apolice")
     const criandoApenasApolice = document.getElementById("criando-apenas-apolice")
     const veiculoIdInput = document.getElementById("veiculo_id")
+    const veiculoIdLabel = document.getElementById("veiculoIdLabel")
 
     veiculoIdInput.value = myParam;
 
     if (myParam) {
         criandoApolice.classList.add("block");
         criandoApolice.classList.remove("hidden");
+        veiculoIdInput.classList.add("invisible")
+        veiculoIdLabel.classList.add("invisible")
+        veiculoIdInput.value = myParam;
 
         criandoApenasApolice.classList.add("hidden")
         criandoApenasApolice.classList.remove("block")

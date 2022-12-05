@@ -86,7 +86,7 @@
             <span asp-validation-for="Veiculo.Placa" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div>
-            <label asp-for="Veiculo.ClienteId" for="client_id" class="labelCreateClients">Client Id</label>
+            <label asp-for="Veiculo.ClienteId" for="client_id" class="labelCreateClients" id="client-id-label">Client Id</label>
             <input asp-for="Veiculo.ClienteId" id="client_id" class="inputCreateClients" />
             <span asp-validation-for="Veiculo.ClienteId" class="mt-1 text-sm text-red-600 dark:text-red-500"></span>
         </div>
@@ -105,6 +105,7 @@
     const criandoCliente = document.getElementById("criando-cliente")
     const criandoApenasVeiculo = document.getElementById("criando-apenas-veiculo")
     const clientIdInput = document.getElementById("client_id")
+    const clientIdLabel = document.getElementById("client-id-label")
 
     console.log('oi',myParam)
 
@@ -113,6 +114,9 @@
     if (myParam) {
         criandoCliente.classList.add("block");
         criandoCliente.classList.remove("hidden");
+        clientIdInput.classList.add("invisible");
+        clientIdLabel.classList.add("invisible");
+        clientIdInput.value = myParam;
 
         criandoApenasVeiculo.classList.add("hidden")
         criandoApenasVeiculo.classList.remove("block")
