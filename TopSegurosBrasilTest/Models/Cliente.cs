@@ -53,7 +53,6 @@ namespace TopSegurosBrasil.Models
         public string Estado { get; set; }
 
         [Required(ErrorMessage = "{0} precisa ser preenchido")]
-        [StringLength(8, MinimumLength = 5, ErrorMessage = "{0} o tamanho deve ser entre {2} e {1}")]
         public int Cep { get; set; }
 
         [Required(ErrorMessage = "{0} precisa ser preenchido")]
