@@ -32,9 +32,6 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
                 <th scope="col" class="py-3 px-6 text-center">
-                    @Html.DisplayNameFor(model => model.Id)
-                </th>
-                <th scope="col" class="py-3 px-6 text-center">
                     @Html.DisplayNameFor(model => model.AnoModelo)
                 </th>
                 <th scope="col" class="py-3 px-6 text-center"></th>
@@ -44,9 +41,6 @@
             @foreach (var item in Model)
             {
                 <tr class="bg-white border-b">
-                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-center">
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </th>
                     <td class="py-4 px-6 text-center">
                         @Html.DisplayFor(modelItem => item.AnoModelo)
                     </td>
